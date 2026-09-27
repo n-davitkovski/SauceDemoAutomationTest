@@ -9,6 +9,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProductsPage {
@@ -132,5 +133,94 @@ public class ProductsPage {
         WebElement image = driver.findElement(
                 By.cssSelector("#item_4_img_link img"));
         return image.getSize();
+    }
+
+    public List<String> getImageUniqueUrls(){
+        List<WebElement> uniqueImages = driver.findElements(By.cssSelector(".inventory_item_img img"));
+
+        List<String> uniqueimageUrls = new ArrayList<>();
+
+        for(WebElement uniqueimage : uniqueImages){
+            uniqueimageUrls.add(uniqueimage.getAttribute("src"));
+        }
+
+        return uniqueimageUrls;
+    }
+
+    public String getLastNameValue(){
+        WebElement lastname = driver.findElement(
+                By.name("Test")
+        );
+        return lastname.getText();
+    }
+
+    public String isDetailPageCorrespondable(){
+        WebElement title = driver.findElement(
+                By.name("Sauce Labs Bolt T-Shirt")
+        );
+        if(title.isDisplayed()){
+            return "The title of the product is Sauce Labs Bolt T-Shirt";
+        }
+        return title.getText();
+    }
+
+    public String addAndRemoveProductFromCart(){
+        WebElement title = driver.findElement(
+          By.name("Sauce Labs Onesie")
+        );
+        if(title.isSelected()){
+            return "The cart contains a product name";
+        } else{
+            return "The cart has no product name";
+        }
+    }
+
+    public String loginAsperformanceglitchuser(){
+        WebElement username = driver.findElement(
+                By.name("performance_glitch_user")
+        );
+        if(username.isSelected()){
+            return "The login is asserted as threshold";
+        }
+        return username.getText();
+    }
+
+    public String addToCart(){
+        WebElement product = driver.findElement(
+                By.name("Sauce Labs Backpack")
+        );
+        return product.getText();
+    }
+
+    public String sortDropdown(){
+        WebElement dropdown = driver.findElement(
+                By.name("Name A to Z")
+        );
+        return dropdown.getText();
+    }
+
+    public String checkout(){
+        WebElement checkout = driver.findElement(
+                By.name("Checkout: Your Information Page")
+        );
+        return checkout.getText();
+    }
+
+    public String getBackpackTitle() {
+        WebElement productTitle = driver.findElement(
+                By.name("Sauce Labs Backpack")
+        );
+        return productTitle.getText();
+    }
+
+    public void clickBackpackTitle() {
+    }
+
+    public List<String> getProductNames() {
+        return Collections.singletonList(productsTitle.toString());
+    }
+
+    public Object getSelectedOrderingOption(Object product) {
+        return productsNamesList.toString();
     }
 }
