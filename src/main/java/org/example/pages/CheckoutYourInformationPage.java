@@ -12,6 +12,11 @@ public class CheckoutYourInformationPage {
         this.driver = driver;
     }
 
+    public static String getLastNameValue(String lastname) {
+        return lastname.toString();
+    }
+
+
     public boolean isCheckoutInformationPageDisplayed() {
         return true;
     }
@@ -20,7 +25,7 @@ public class CheckoutYourInformationPage {
     private WebElement firstNameField;
 
     @FindBy(id = "last-name")
-    private WebElement lastNameField;
+    private static WebElement lastNameField;
 
     @FindBy(id = "postal-code")
     private WebElement postalCodeField;
@@ -35,7 +40,7 @@ public class CheckoutYourInformationPage {
         firstNameField.sendKeys(firstname);
     }
 
-    public void enterLastName(String lastname) {
+    public static void enterLastName(String lastname) {
         lastNameField.sendKeys(lastname);
     }
 
