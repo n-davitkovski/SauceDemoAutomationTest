@@ -17,15 +17,15 @@ public class YourCartPage {
     }
 
     @FindBy(id = "remove-sauce-labs-backpack")
-    private WebElement removeBackpackButton;
+    private static WebElement removeBackpackButton;
 
     @FindBy(id = "continue-shopping")
     private WebElement continueShoppingButton;
 
     @FindBy(id = "checkout")
-    private WebElement checkoutButton;
+    private static WebElement checkoutButton;
 
-    public void removeBackpack() {
+    public static void removeBackpack() {
         removeBackpackButton.click();
     }
 
@@ -33,8 +33,8 @@ public class YourCartPage {
         continueShoppingButton.click();
     }
 
-    public void clickCheckout() {
-        checkoutButton.click();
+    public static void clickCheckout() {
+
     }
 
     public String getBackpackName(String name) {
